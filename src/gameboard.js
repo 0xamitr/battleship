@@ -9,6 +9,7 @@ const gameboard = () => {
         [0, 1, 2, 3, 4, 5],
         [0, 1, 2, 3, 4, 5]
     ]
+    let gameover = false;
     const ships = []
     const place = (cord, length) => {
         const ourship = ship(length)
@@ -25,13 +26,14 @@ const gameboard = () => {
                 let test = 0;
                 while(index){
                     if (board[cord[0]][cord[1] + length - index] != "ship"){
-                        coords.push(board[cord[0]][cord[1] + length - index])
+                        coords.push([[cord[0]],[cord[1] + length - index]])
                         test++
                     }
                     index--
                 }
                 if(test == length){
                     ourship.cords = coords;
+                    ships.push(ourship)
                     coords = [];
                     return true
                 }
@@ -49,22 +51,32 @@ const gameboard = () => {
         return board
     }
     const receiveAttack = (cords) =>{
+        const ship_num = ships.length
+        let check = 0
         if(board[cords[0]][cords[1]] == 'ship'){
             ships.forEach(e => {
-                (e.coords).forEach((e1) => {
-                    if(board[cords[0]][cords[1]] == e1){
-                        e.hit();
+                (e.cords).forEach((e1) => {
+                    if(cords[0] == e1[0] && cords[1] == e1[1]){
+                        e.hit()
+                        if(e.isSink == true){
+                            check++
+                        }
                         board[cords[0]][cords[1]] = "X"
-                        return board[cords[0]][cords[1]];
                     }
                 })
             })
         }
         else{
             board[cords[0]][cords[1]] = '@'
-            return board[cords[0]][cords[1]]
         }
+        if(ship_num == check){
+            gameover = true;
+        }
+        return board[cords[0]][cords[1]]
     }
-    return {place, receiveAttack}
+    const gameStatus = () =>{
+        return gameover
+    }
+    return {gameStatus, place, receiveAttack}
 }
 export {gameboard}

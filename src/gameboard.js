@@ -54,13 +54,17 @@ const gameboard = () => {
                 (e.coords).forEach((e1) => {
                     if(board[cords[0]][cords[1]] == e1){
                         e.hit();
-                        board[cords[0]][cords[1]] == "X"
+                        board[cords[0]][cords[1]] = "X"
+                        return board[cords[0]][cords[1]];
                     }
                 })
             })
         }
+        else{
+            board[cords[0]][cords[1]] = '@'
+            return board[cords[0]][cords[1]]
+        }
     }
     return {place, receiveAttack}
 }
-
 export {gameboard}

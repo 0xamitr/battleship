@@ -2,6 +2,7 @@ const ship = (len) => {
     const length = len;
     let hits = 0;
     let sink = false;
+    let cords = [];
     const getHits = () => hits
     const getSink = () => sink
     const isSunk = () => {
@@ -15,6 +16,6 @@ const ship = (len) => {
         hits++;
         isSunk()
     }
-    return {hit, isSunk}
+    return {cords, hit, isSunk}
 }
 export {ship}

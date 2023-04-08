@@ -3,19 +3,18 @@ const ship = (len) => {
     let hits = 0;
     let sink = false;
     const getHits = () => hits
-    const getSink = () => sink;
+    const getSink = () => sink
     const isSunk = () => {
-        if(getHits() == length){
+        if(getHits() == length)
             sink = true;
-            console.log("ship has sunk")
-        }
+        return sink;
     }
     const hit = () => {
+        if(getSink() == true)
+            return false
         hits++;
         isSunk()
     }
-    return {hit, getHits, getSink}
+    return {hit, isSunk}
 }
-
-
 export {ship}

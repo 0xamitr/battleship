@@ -49,5 +49,8 @@ describe("place()", () => {
 })
 
 describe("receiveAttack()", () => {
-    
+    test("case 1", () => {
+        const gameboard1 = gameboard();
+        expect(gameboard1.receiveAttack([2,2])).toBe('@')
+    })
 })

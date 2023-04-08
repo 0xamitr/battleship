@@ -1,1 +1,1 @@
-(()=>{"use strict";(t=>{let i=0,r=!1;const e=()=>(5==i&&(r=!0),r);return{hit:()=>{if(1==r)return!1;i++,e()},isSunk:e}})().hit()})();
+(()=>{"use strict";(t=>{let r=0,i=!1;const s=()=>(5==r&&(i=!0),i);return{cords:[],hit:()=>{if(1==i)return!1;r++,s()},isSunk:s}})().hit()})();

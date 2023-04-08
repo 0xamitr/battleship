@@ -1,1 +1,1 @@
-(()=>{"use strict";const t=(t=>{let i=0,s=!1;const h=()=>i;return{hit:()=>{i++,5==h()&&(s=!0,console.log("ship has sunk"))},getHits:h,getSink:()=>s}})();t.hit(),t.hit(),t.hit(),t.hit()})();
+(()=>{"use strict";(t=>{let i=0,r=!1;const e=()=>(5==i&&(r=!0),r);return{hit:()=>{if(1==r)return!1;i++,e()},isSunk:e}})().hit()})();

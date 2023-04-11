@@ -58,7 +58,7 @@ const gameboard = () => {
                 (e.cords).forEach((e1) => {
                     if(cords[0] == e1[0] && cords[1] == e1[1]){
                         e.hit()
-                        if(e.isSink == true){
+                        if(e.isSunk() == true){
                             check++
                         }
                         board[cords[0]][cords[1]] = "X"
@@ -70,6 +70,7 @@ const gameboard = () => {
             board[cords[0]][cords[1]] = '@'
         }
         if(ship_num == check){
+            
             gameover = true;
         }
         return board[cords[0]][cords[1]]

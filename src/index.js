@@ -1,4 +1,5 @@
-import {ship} from "./ship.js"
+import {fillboard} from "./fillboard.js"
+import {gameloop} from "./game.js"
 
-const ship1 = ship(5)
-ship1.hit()
+fillboard()
+gameloop()

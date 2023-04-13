@@ -10,7 +10,7 @@ function boardpopulate(board, player){
         let innertext = [y,x]
         node.innerText = `${innertext}`;
         node.classList.add(`${innertext}`)
-
+        node.style.fontSize = "0"
         board.append(node)
         x++
         if (x % 10 == 0){

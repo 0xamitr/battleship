@@ -16,7 +16,7 @@ const gameboard = () => {
     let gameover = false;
     const ships = []
     const place = (cord, length, hoalder) => {
-        console.log("Z")
+        console.log("placecalled")
         const ourship = ship(length)
         if(cord.length != 2){
             return false
@@ -45,18 +45,19 @@ const gameboard = () => {
             }
             return false
         }
-        if(checkforempty(hoalder)){
+        if(checkforempty()){
+            console.log("run")
             index = length
             while(index){
                 board[cord[0]][cord[1] + length - index] = "ship"
                 let innertext = [cord[0],(cord[1] + length - index)]
                 console.log(document.getElementsByClassName(innertext)[0]);
                 if(hoalder == "player1"){
-                    (document.getElementsByClassName(innertext)[0]).setAttribute("style", "background-color: grey")
+                    (document.getElementsByClassName(innertext)[0]).style.backgroundColor = "grey"
 
                 }
                 if(hoalder == "player2"){
-                    (document.getElementsByClassName(innertext)[1]).setAttribute("style", "background-color: grey")
+                    (document.getElementsByClassName(innertext)[1]).style.backgroundColor = "grey"
                 }
 
                 index--

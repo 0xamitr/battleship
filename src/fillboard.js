@@ -1,16 +1,19 @@
 function boardpopulate(board, player){
-    const box_dimension = (600-12)/6
+    const box_dimension = (600-20) / 10
     const boardchild = document.createElement("div")
     boardchild.setAttribute("style", `height: ${box_dimension}px; width: ${box_dimension}px; border: solid 1px black` )
     boardchild.setAttribute("class", `${player}`)
     let x = 0
     let y = 0
-    for(let i = 0; i < 36; i++){
+    for(let i = 0; i < 100; i++){
         let node = boardchild.cloneNode()
-        node.innerText = [y, x];
+        let innertext = [y,x]
+        node.innerText = `${innertext}`;
+        node.classList.add(`${innertext}`)
+
         board.append(node)
         x++
-        if (x % 6 == 0){
+        if (x % 10 == 0){
             y++
             x = 0
         }

@@ -2,16 +2,21 @@ import {ship} from "./ship.js"
 
 const gameboard = () => {
     let board = [
-        [0, 1, 2, 3, 4, 5],
-        [0, 1, 2, 3, 4, 5],
-        [0, 1, 2, 3, 4, 5],
-        [0, 1, 2, 3, 4, 5],
-        [0, 1, 2, 3, 4, 5],
-        [0, 1, 2, 3, 4, 5]
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     ]
     let gameover = false;
     const ships = []
-    const place = (cord, length) => {
+    const place = (cord, length, hoalder) => {
+        console.log("Z")
         const ourship = ship(length)
         if(cord.length != 2){
             return false
@@ -22,7 +27,7 @@ const gameboard = () => {
         let index = length
         const checkforempty = () => {
             let coords = []
-            if (6 - cord[1] >= length){
+            if (10 - cord[1] >= length){
                 let test = 0;
                 while(index){
                     if (board[cord[0]][cord[1] + length - index] != "ship"){
@@ -40,19 +45,29 @@ const gameboard = () => {
             }
             return false
         }
-        if(checkforempty()){
+        if(checkforempty(hoalder)){
             index = length
             while(index){
                 board[cord[0]][cord[1] + length - index] = "ship"
+                let innertext = [cord[0],(cord[1] + length - index)]
+                console.log(document.getElementsByClassName(innertext)[0]);
+                if(hoalder == "player1"){
+                    (document.getElementsByClassName(innertext)[0]).setAttribute("style", "background-color: grey")
+
+                }
+                if(hoalder == "player2"){
+                    (document.getElementsByClassName(innertext)[1]).setAttribute("style", "background-color: grey")
+                }
+
                 index--
             }
-            return board
+            return true
         }
-        return board
+        return false
     }
+    let check = 0
     const receiveAttack = (cords) =>{
         const ship_num = ships.length
-        let check = 0
         if(board[cords[0]][cords[1]] == 'ship'){
             ships.forEach(e => {
                 (e.cords).forEach((e1) => {
@@ -67,10 +82,10 @@ const gameboard = () => {
             })
         }
         else{
-            board[cords[0]][cords[1]] = '@'
+            board
+            [cords[0]][cords[1]] = '@'
         }
         if(ship_num == check){
-            
             gameover = true;
         }
         return board[cords[0]][cords[1]]
@@ -78,6 +93,9 @@ const gameboard = () => {
     const gameStatus = () =>{
         return gameover
     }
-    return {gameStatus, place, receiveAttack}
+    const getboard = () =>{
+        return board
+    }
+    return {gameStatus, place, receiveAttack, getboard}
 }
 export {gameboard}

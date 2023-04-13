@@ -1,13 +1,13 @@
 function placecomputer(player, num){
     let j = 0
-    
-    while(j < 2)
+    let shipsize = num + 1
+    while(j < num)
     {
         let x = Math.floor(Math.random()*10)
         let y = Math.floor(Math.random()*10)
         let rand_coords = [y, x]
-        if((player.playerboard.place((rand_coords), num + 1, "player2")) == true){
-            console.log("hii")
+        if((player.playerboard.place((rand_coords), shipsize, "player2")) == true){
+            shipsize--
             j++
         }
     }

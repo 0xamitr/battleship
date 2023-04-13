@@ -7,12 +7,8 @@ function computerturn(player, attackedCoords, game){
     } while (attackedCoords.some(coords => coords[0] === rand_coords[0] && coords[1] === rand_coords[1]))
 
     attackedCoords.push(rand_coords)
+
     let element = document.getElementsByClassName(rand_coords)[0]
-    
-    // // check if the element has already been attacked
-    // if (element.classList.contains('a')) {
-    //     return computerturn(player, attackedCoords, game);
-    // }
     let attack = player.playerboard.receiveAttack(rand_coords)
     if(attack == "X"){
         element.style.backgroundColor = "red"; 

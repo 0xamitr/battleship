@@ -51,7 +51,6 @@ const gameboard = () => {
             while(index){
                 board[cord[0]][cord[1] + length - index] = "ship"
                 let innertext = [cord[0],(cord[1] + length - index)]
-                console.log(document.getElementsByClassName(innertext)[0]);
                 if(hoalder == "player1"){
                     (document.getElementsByClassName(innertext)[0]).style.backgroundColor = "grey"
 

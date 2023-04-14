@@ -7,6 +7,9 @@ function turn(player1, player2, no_of_ships){
     let game = true
     let shipsize = num + 1
     let turn = "placeship1"
+    let left = null
+    let right = null
+
     Array.from(document.getElementsByClassName("player1")).forEach(element => {
         element.addEventListener("click", () => {
             if(turn == "placeship1"){
@@ -26,7 +29,6 @@ function turn(player1, player2, no_of_ships){
         element.addEventListener("click", () => {
             if(game && (turn == "player1") && (element.className != "a")){
                 let attack = player2.playerboard.receiveAttack((element.innerText).split(",").map(Number))
-                console.log(attack)
                 if(attack == "X"){
                     element.style.backgroundColor = "red"; 
                     element.setAttribute("class", "a")
@@ -41,7 +43,13 @@ function turn(player1, player2, no_of_ships){
                     return
                 }
                 turn = "player2"
-                turn = computerturn(player1, attackedCoords, game)
+                let go = computerturn(player1, attackedCoords, game, left, right)
+                if(go != undefined){
+                    turn = go[0]
+                    left = go[1]
+                    right = go[2]
+                }
+                
             }
         })
     });

@@ -55,10 +55,6 @@ const gameboard = () => {
                     (document.getElementsByClassName(innertext)[0]).style.backgroundColor = "grey"
 
                 }
-                if(hoalder == "player2"){
-                    (document.getElementsByClassName(innertext)[1]).style.backgroundColor = "grey"
-                }
-
                 index--
             }
             return true

@@ -9,16 +9,27 @@ function turn(player1, player2, no_of_ships){
     let turn = "placeship1"
     let left = null
     let right = null
+    let status = document.getElementById("status")
 
     Array.from(document.getElementsByClassName("player1")).forEach(element => {
         element.addEventListener("click", () => {
-            if(turn == "placeship1"){
+            if(turn == "placeship1" && game){
+                if(i == 0){
+                    status.innerText = "Place your Submarine"
+                }
+                if(i == 1){
+                    status.innerText = "Place your Destroyer"
+                }
+                if(i == 2){
+                    status.innerText = "Place your Ship"
+                }
                 if (player1.playerboard.place((element.innerText).split(",").map(Number), shipsize, "player1") == true){
                     i++
                     shipsize--
                 }
                 if(i == num){
                     turn = "placeship2"
+                    status.innerText = "Attack"
                     turn = placecomputer(player2, num)
                     return
                 }
@@ -39,6 +50,7 @@ function turn(player1, player2, no_of_ships){
                 }
                 if(player2.playerboard.gameStatus() == true){
                     console.log("player1 wins")
+                    status.innerText = "YOU WIN!"
                     game = false
                     return
                 }

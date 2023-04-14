@@ -1,15 +1,36 @@
+body, html{
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    align-items: center;
+}
 #game{
     display: flex;
-    min-height: 100vh;
     align-items: center;
-    justify-content: space-around;
+    gap: 15vw
 }
-
 .gameboard{
     width: 600px;
     height: 600px;
     border: solid 2px black;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-
+}
+#button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#title{
+    margin: 0;
+    margin-top: 5vh;
+}
+#status{
+    margin: 0;
 }

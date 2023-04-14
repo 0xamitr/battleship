@@ -2,6 +2,7 @@ function computerturn(player, attackedCoords, game, left, right){
     let rand_coords
     console.log(left)
     console.log(right)
+    let status = document.getElementById("status")
     if(left == null && right == null){
         do {
             let y = Math.floor(Math.random()*10)
@@ -30,6 +31,7 @@ function computerturn(player, attackedCoords, game, left, right){
         }
         if(player.playerboard.gameStatus() == true){
             console.log("player2 wins")
+            status.innerText = "The Computer WINS! Better luck next time!"
             game = false
             return
         }
@@ -53,6 +55,7 @@ function computerturn(player, attackedCoords, game, left, right){
             left = null 
         }
         if(player.playerboard.gameStatus() == true){
+            status.innerText = "The Computer WINS! Better luck next time!"
             console.log("player2 wins")
             game = false
             return
@@ -76,6 +79,7 @@ function computerturn(player, attackedCoords, game, left, right){
             right = null 
         }
         if(player.playerboard.gameStatus() == true){
+            status.innerText = "The Computer WINS! Better luck next time!"
             console.log("player2 wins")
             game = false
             return

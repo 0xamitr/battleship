@@ -5,7 +5,6 @@ function gameloop(){
     const player1 = player()    
     const player2 = player()
     document.getElementById("status").innerText = `Place your Aircraft Carrier`
-    
     turn(player1, player2, 4)
 }
 

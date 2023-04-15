@@ -14,16 +14,16 @@ function turn(player1, player2, no_of_ships){
     Array.from(document.getElementsByClassName("player1")).forEach(element => {
         element.addEventListener("click", () => {
             if(turn == "placeship1" && game){
-                if(i == 0){
-                    status.innerText = "Place your Submarine"
-                }
-                if(i == 1){
-                    status.innerText = "Place your Destroyer"
-                }
-                if(i == 2){
-                    status.innerText = "Place your Ship"
-                }
                 if (player1.playerboard.place((element.innerText).split(",").map(Number), shipsize, "player1") == true){
+                    if(i == 0){
+                        status.innerText = "Place your Submarine"
+                    }
+                    if(i == 1){
+                        status.innerText = "Place your Destroyer"
+                    }
+                    if(i == 2){
+                        status.innerText = "Place your Ship"
+                    }
                     i++
                     shipsize--
                 }

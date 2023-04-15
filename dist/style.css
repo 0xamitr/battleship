@@ -34,3 +34,6 @@ body{
 #status{
     margin: 0;
 }
+.player1.selected{
+    background-color: red;
+}

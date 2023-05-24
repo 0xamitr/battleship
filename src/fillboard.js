@@ -1,7 +1,8 @@
 function boardpopulate(board, player){
-    const box_dimension = (600-20) / 10
+    
+    const box_dimension = (30) / 10
     const boardchild = document.createElement("div")
-    boardchild.setAttribute("style", `height: ${box_dimension}px; width: ${box_dimension}px; border: solid 1px black` )
+    boardchild.setAttribute("style", `min-height: calc(~"${box_dimension}vw - 2px"); min-width: calc(~"${box_dimension}vw - 2px"); border: solid 1px black` )
     boardchild.setAttribute("class", `${player}`)
     let x = 0
     let y = 0

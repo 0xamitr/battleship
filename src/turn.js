@@ -15,19 +15,19 @@ function turn(player1, player2, no_of_ships){
         element.addEventListener("click", () => {
             if(turn == "placeship1" && game){
                 if (player1.playerboard.place((element.innerText).split(",").map(Number), shipsize, "player1") == true){
-                    if(i == 0){
+                    if(i === 0){
                         status.innerText = "Place your Submarine"
                     }
-                    if(i == 1){
+                    if(i === 1){
                         status.innerText = "Place your Destroyer"
                     }
-                    if(i == 2){
+                    if(i === 2){
                         status.innerText = "Place your Ship"
                     }
                     i++
                     shipsize--
                 }
-                if(i == num){
+                if(i === num){
                     turn = "placeship2"
                     status.innerText = "Attack"
                     turn = placecomputer(player2, num)
@@ -38,13 +38,13 @@ function turn(player1, player2, no_of_ships){
     })
     Array.from(document.getElementsByClassName("player2")).forEach(element => {
         element.addEventListener("click", () => {
-            if(game && (turn == "player1") && (element.className != "a")){
+            if(game && (turn === "player1") && (element.className != "a")){
                 let attack = player2.playerboard.receiveAttack((element.innerText).split(",").map(Number))
-                if(attack == "X"){
+                if(attack === "X"){
                     element.style.backgroundColor = "red"; 
                     element.setAttribute("class", "a")
                 }
-                if(attack != "X"){
+                if(attack !== "X"){
                     element.style.backgroundColor = "black"; 
                     element.setAttribute("class", "a")
                 }
@@ -56,7 +56,7 @@ function turn(player1, player2, no_of_ships){
                 }
                 turn = "player2"
                 let go = computerturn(player1, attackedCoords, game, left, right)
-                if(go != undefined){
+                if(go !== undefined){
                     turn = go[0]
                     left = go[1]
                     right = go[2]

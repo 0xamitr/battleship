@@ -10,6 +10,12 @@ function turn(player1, player2, no_of_ships){
     let left = null
     let right = null
     let status = document.getElementById("status")
+    // let button = document.getElementById("button")
+    // button.addEventListener("click", ()=>{
+    //     if(game === false){
+    //         game = true
+    //     }
+    // })
 
     Array.from(document.getElementsByClassName("player1")).forEach(element => {
         element.addEventListener("click", () => {
@@ -29,7 +35,7 @@ function turn(player1, player2, no_of_ships){
                 }
                 if(i === num){
                     turn = "placeship2"
-                    status.innerText = "Attack"
+                    status.innerHTML = "Attack!<br>You need to destroy all the Enemy's ship by clicking on the enemy board<br>Red box indicates a hit! Black box indicates a miss!"
                     turn = placecomputer(player2, num)
                     return
                 }

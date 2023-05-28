@@ -9,12 +9,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="title">BATTLESHIP</h1>
-    <h2 id="status"></h2>
-    <div id="game">
-        <div class="gameboard" id="one"></div>
-        <div class="gameboard" id="two"></div>
+    <div id="header">
+        <h1 id="title">BATTLESHIP</h1>
     </div>
-    <button id="button"></button>
+    <div id="main">
+        <h2 id="status"></h2>
+        <div id="game">
+            <div class="board">
+                <h2>Your Board</h2>
+                <div class="gameboard" id="one"></div>
+            </div>
+            <div class="board">
+                <h2>Enemy's Board</h2>
+                <div class="gameboard" id="two"></div>
+            </div>
+        </div>
+        <!-- <button id="button"></button> -->
+    </div>
 </body>
 </html>

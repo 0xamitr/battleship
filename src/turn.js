@@ -20,7 +20,7 @@ function turn(player1, player2, no_of_ships){
     Array.from(document.getElementsByClassName("player1")).forEach(element => {
         element.addEventListener("click", () => {
             if(turn == "placeship1" && game){
-                if (player1.playerboard.place((element.innerText).split(",").map(Number), shipsize, "player1") == true){
+                if (player1.playerboard.place((element.innerText).split(",").map(Number), shipsize, "player1") === true){
                     if(i === 0){
                         status.innerText = "Place your Submarine"
                     }
@@ -44,7 +44,7 @@ function turn(player1, player2, no_of_ships){
     })
     Array.from(document.getElementsByClassName("player2")).forEach(element => {
         element.addEventListener("click", () => {
-            if(game && (turn === "player1") && (element.className != "a")){
+            if(game && (turn === "player1") && (element.className !== "a")){
                 let attack = player2.playerboard.receiveAttack((element.innerText).split(",").map(Number))
                 if(attack === "X"){
                     element.style.backgroundColor = "red"; 
